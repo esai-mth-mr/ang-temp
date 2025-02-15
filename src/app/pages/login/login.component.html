@@ -1,0 +1,25 @@
+<div class="w-full h-[calc(100vh-5rem)] flex justify-center items-center overflow-auto">
+    <div class="w-11/12 sm:w-6/12 h-4/6 min-h-40 border-slate-600 border rounded-lg flex items-center justify-center">
+        <form class="min-w-20 w-10/12" (ngSubmit)="onSubmit()">
+            <mat-form-field class="w-full">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Ex. ericsassano@gmail.com" [(ngModel)]="email" name="email" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="......" [(ngModel)]="password" name="password" required>
+            </mat-form-field>
+            <div class="w-full flex bg-slate-500 text-white rounded-lg justify-center p-2 mt-4 hover:cursor-pointer"
+                (click)="onSubmit()">
+                <ng-container class="text-white" *ngIf="isLoading; else loginButton">
+                    Login&nbsp; 
+                    <mat-spinner [diameter] = "24" ></mat-spinner>
+                </ng-container>
+                <ng-template #loginButton>
+                    Login&nbsp;
+                    <mat-icon>login</mat-icon>
+                </ng-template>
+            </div>
+        </form>
+    </div>
+</div>
